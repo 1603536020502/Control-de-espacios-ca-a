@@ -1,0 +1,21 @@
+---
+title: "Untitled"
+author: "MIGUEL AGUILAR"
+date: "7/3/2021"
+output: word_document
+---
+CLASE 5 - APLICACION DE HERRAMIENTAS ESTADISTICAS DEL CURSO DE R
+
+```{r}
+setwd("~/GitHub/Control-de-espacios-ca-a")
+library(readxl)
+ESPACIOSV <- read_excel("BASE DATOS CCA.xlsx", sheet = "POBLACION")
+summary(ESPACIOSV$`PORC ESPACIOS VACIOS`)
+```
+
+DESCRIPCION DE ESTADISTICOS A TRAVES DE LA HERRAMIENTA DE PSYCH
+
+```{r}
+class(ESPACIOSV$VARIEDAD)
+boxplot(ESPACIOSV$`PORC ESPACIOS VACIOS`~ESPACIOSV$VARIEDAD, main = "ESPACIOS POR VARIEDAD", ylab = "% ESPACIOS")
+```
