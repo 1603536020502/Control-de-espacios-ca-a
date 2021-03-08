@@ -1,5 +1,5 @@
 ---
-title: "Untitled"
+title: "R APLICADA - CAÑA DE AZUCAR"
 author: "MIGUEL AGUILAR"
 date: "7/3/2021"
 output: word_document
@@ -17,5 +17,28 @@ DESCRIPCION DE ESTADISTICOS A TRAVES DE LA HERRAMIENTA DE PSYCH
 
 ```{r}
 class(ESPACIOSV$VARIEDAD)
-boxplot(ESPACIOSV$`PORC ESPACIOS VACIOS`~ESPACIOSV$VARIEDAD, main = "ESPACIOS POR VARIEDAD", ylab = "% ESPACIOS")
+boxplot(ESPACIOSV$`PORC ESPACIOS VACIOS`~ESPACIOSV$VARIEDAD, main = "ESPACIOS POR VARIEDAD", ylab = "% ESPACIOS", xlab = "VARIEDAD")
 ```
+Se puede evidenciar que la variedad CP73-1547 es suceptible a la cosecha mecanica, teniendo un efecto de despoblación mayor a las variedades de su mismo estrato
+
+
+```{r}
+hist(ESPACIOSV$`PORC ESPACIOS VACIOS`,freq = FALSE, main = "PORCENTAJE DE ESPACIOS", col = "blue", xlab = "GENERAL", ylab = "%" ) 
+```
+Acorde a la efectividad de la resiembra se evidencia que las evaluaciones de espacios menores a 2.5% permisible
+
+
+
+ANALISIS ESTADISTICO DE LA DESPOBLACION DE LAS SOCAS DaovE CAÑA
+
+```{r}
+library(psych)
+describe.by(ESPACIOSV$`PORC ESPACIOS VACIOS`, group = ESPACIOSV$VARIEDAD, digits = 2)
+```
+
+DESCRIPCION ESTADISTICA DE LA DESPOBLACION DE TRES VAIREDADES CON MAYOR PORCENTAJE DE HAS
+
+```{r}
+aov(ESPACIOSV$`PORC ESPACIOS VACIOS`~ESPACIOSV$VARIEDAD)
+```
+![Desp.]("~/GitHub/Control-de-espacios-ca-a")
